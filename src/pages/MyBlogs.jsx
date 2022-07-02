@@ -1,8 +1,7 @@
-import { Link } from 'react-router-dom'
-import BlogFilter from './BlogFilter'
-import BlogItem from './BlogItem'
+import BlogFilter from '../components/BlogFilter'
+import BlogItem from '../components/BlogItem'
 
-const Blog = () => {
+const MyBlogs = () => {
     return (
         <>
             <div className='grid grid-cols-4'>
@@ -12,17 +11,14 @@ const Blog = () => {
                 </div>
                 {/* Blog Content */}
                 <div className='col-span-3'>
-                    <h2 className='text-3xl font-bold pb-5'>BLOG</h2>
+                    <h2 className='text-3xl font-bold pb-5'>YAYINLADIĞIM YAZILAR</h2>
                     <div className='grid grid-cols-3 gap-3'>
-                        <BlogItem/>
+                        <BlogItem />
                     </div>
                 </div>
             </div>
-
-
-
         </>
     )
 }
 
-export default Blog
+export default MyBlogs
