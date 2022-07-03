@@ -7,6 +7,10 @@ import {
   signOut,
   onAuthStateChanged
 } from "firebase/auth";
+import {
+  getFirestore, collection, onSnapshot, doc,
+  addDoc, query, getDocs, where
+} from 'firebase/firestore';
 
 
 const firebaseConfig = {
@@ -22,6 +26,8 @@ const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 
+// Veritabanı bağlantısı
+const db = getFirestore();
 
 // Kullanıcı Kayıt Fonksiyonu 
 export const register = async (email, password) => {
@@ -62,7 +68,7 @@ export const logout = async () => {
 // Kullanıcı Kontrolü
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    
+
     const authUser = {
       displayName: user.displayName,
       email: user.email,
@@ -77,3 +83,18 @@ onAuthStateChanged(auth, (user) => {
     localStorage.removeItem('user');
   }
 });
+
+// Veritabanına Kayıt Fonksiyonu
+export const addBlog = async (data) => {
+  try {
+    const result = await addDoc(collection(db, 'blogs'), data);
+    if (result != null) {
+      toast.success('Kayıt İşlemi Başarılı');
+      return true;
+    }
+    return false;
+
+  } catch (error) {
+    toast.error(error.message);
+  }
+}

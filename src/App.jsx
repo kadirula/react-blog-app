@@ -10,6 +10,7 @@ import Profile from "./pages/Profile";
 import CategoryBlog from "./pages/CategoryBlog";
 import AuthorBlog from "./pages/AuthorBlog";
 import BlogList from "./pages/BlogList";
+import BlogAdd from "./pages/BlogAdd";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/category-blog" element={<CategoryBlog />} />
           <Route path="/author-blog" element={<AuthorBlog />} />
           <Route path="/blog-list" element={<BlogList />} />
+          <Route path="/blog-add" element={<BlogAdd />} />
         </Routes>
       </div>
 

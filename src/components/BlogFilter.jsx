@@ -99,7 +99,7 @@ const BlogFilter = () => {
                             <h4 className='font-bold uppercase text-2xl bg-indigo-700 text-white py-1 px-3 inline-block' >YÖNETİM</h4>
                         </li>
                         <li className='py-1 px-3 hover:bg-indigo-700 transition-colors'>
-                            <Link to='/' className='font-bold text-indigo-700 hover:text-white block transition-colors' >Yazı Ekle</Link>
+                            <Link to='/blog-add' className='font-bold text-indigo-700 hover:text-white block transition-colors' >Yazı Ekle</Link>
                         </li>
                         <li className='py-1 px-3 hover:bg-indigo-700 transition-colors'>
                             <Link to='/blog-list' className='font-bold text-indigo-700 hover:text-white block transition-colors' >Yayınladığım Yazı Listesi</Link>
