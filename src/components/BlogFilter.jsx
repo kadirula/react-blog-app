@@ -45,6 +45,27 @@ const BlogFilter = () => {
                     null
             }
 
+            <hr />
+            
+            <div>
+                {
+                    user ?
+                        <ul className='my-5'>
+                            <li className='py-1'>
+                                <h4 className='font-bold uppercase text-2xl bg-indigo-700 text-white py-1 px-3 inline-block' >YÖNETİM</h4>
+                            </li>
+                            <li className='py-1 px-3 hover:bg-indigo-700 transition-colors'>
+                                <Link to='/blog-add' className='font-bold text-indigo-700 hover:text-white block transition-colors' >Yazı Ekle</Link>
+                            </li>
+                            <li className='py-1 px-3 hover:bg-indigo-700 transition-colors'>
+                                <Link to='/blog-list' className='font-bold text-indigo-700 hover:text-white block transition-colors' >Yayınladığım Yazı Listesi</Link>
+                            </li>
+                        </ul>
+                        :
+                        null
+                }
+            </div>
+
             <div>
                 <h4 className='pt-5 font-bold text-lg'>Kategoriler</h4>
                 <ul className='my-5 flex flex-wrap items-center'>
@@ -92,22 +113,7 @@ const BlogFilter = () => {
             </div>
 
             <hr />
-            {
-                user ?
-                    <ul className='my-5'>
-                        <li className='py-1'>
-                            <h4 className='font-bold uppercase text-2xl bg-indigo-700 text-white py-1 px-3 inline-block' >YÖNETİM</h4>
-                        </li>
-                        <li className='py-1 px-3 hover:bg-indigo-700 transition-colors'>
-                            <Link to='/blog-add' className='font-bold text-indigo-700 hover:text-white block transition-colors' >Yazı Ekle</Link>
-                        </li>
-                        <li className='py-1 px-3 hover:bg-indigo-700 transition-colors'>
-                            <Link to='/blog-list' className='font-bold text-indigo-700 hover:text-white block transition-colors' >Yayınladığım Yazı Listesi</Link>
-                        </li>
-                    </ul>
-                    :
-                    null
-            }
+
 
         </div>
     )

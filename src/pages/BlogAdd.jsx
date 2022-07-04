@@ -38,8 +38,7 @@ const BlogAdd = () => {
     }
 
     return (
-        <div>
-
+        <>
             <div className='grid grid-cols-4'>
                 {/* Blog Left */}
                 <div className='col-span-1'>
@@ -96,7 +95,7 @@ const BlogAdd = () => {
                     </form>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

@@ -11,6 +11,8 @@ import {
   getFirestore, collection, onSnapshot, doc,
   addDoc, query, getDocs, where
 } from 'firebase/firestore';
+import store from './store';
+import { setBlogs, setAuthorBlogs } from './store/blogs';
 
 
 const firebaseConfig = {
@@ -98,3 +100,30 @@ export const addBlog = async (data) => {
     toast.error(error.message);
   }
 }
+
+// Tüm Blogları Çeken Fonksiyon
+onSnapshot(collection(db, 'blogs'), (doc) => {
+
+  store.dispatch(
+    setBlogs(
+      doc.docs.reduce((blogs, blog) => [...blogs, blog.data()], [])
+    )
+  )
+})
+
+
+// Kullanıcının Bloglarını Çeken Fonksiyon
+const userEmail = JSON.parse(localStorage.getItem('user')).email;
+
+
+const q = query(collection(db, "blogs"), where("author", "==", userEmail));
+
+onSnapshot(q, (doc) => {
+
+  store.dispatch(
+    setAuthorBlogs(
+      doc.docs.reduce((authorBlogs, authorBlog) => [...authorBlogs, authorBlog.data()], [])
+    )
+  )
+
+})
