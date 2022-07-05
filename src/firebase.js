@@ -113,17 +113,21 @@ onSnapshot(collection(db, 'blogs'), (doc) => {
 
 
 // Kullanıcının Bloglarını Çeken Fonksiyon
-const userEmail = JSON.parse(localStorage.getItem('user')).email;
+const user = JSON.parse(localStorage.getItem('user'));
 
+if (user !== null) {
+  const q = query(collection(db, "blogs"), where("author", "==", user.email));
 
-const q = query(collection(db, "blogs"), where("author", "==", userEmail));
+  onSnapshot(q, (doc) => {
 
-onSnapshot(q, (doc) => {
-
-  store.dispatch(
-    setAuthorBlogs(
-      doc.docs.reduce((authorBlogs, authorBlog) => [...authorBlogs, authorBlog.data()], [])
+    store.dispatch(
+      setAuthorBlogs(
+        doc.docs.reduce((authorBlogs, authorBlog) => [...authorBlogs, authorBlog.data()], [])
+      )
     )
-  )
 
-})
+  })
+}
+
+
+

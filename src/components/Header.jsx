@@ -34,7 +34,7 @@ const Header = () => {
                         <Link to="/" className='font-bold hover:text-indigo-600 transition-colors'>Anasayfa</Link>
                     </li>
                     {
-                        !user &&
+                        user &&
                         <li className='mx-4'>
                             <Link to="/my-blogs" className='font-bold hover:text-indigo-600 transition-colors'>Yayınladığım Yazılar</Link>
                         </li>
