@@ -1,29 +1,28 @@
 import { useState } from 'react';
-import {login} from '../firebase';
+import { register} from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Register = () => {
 
   const navigate = useNavigate();
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('')
 
-  const loginSubmitHandle = async (e) => {
+  const registerSubmitHandle = async (e) => {
     e.preventDefault();
-    const user = await login(email, password);
+    const user = await register(email, password);
     if (user) {
-      navigate('/', {
+      navigate('/login', {
         replace: true
       });
     }
-  }
+  } 
 
   return (
     <>
       <div className='max-w-xl mx-auto'>
-        <form onSubmit={loginSubmitHandle} className='text-center bg-indigo-100 px-10 py-10'>
-          <h3 className='text-2xl font-bold uppercase text-indigo-700'>GİRİŞ YAP</h3>
+        <form onSubmit={registerSubmitHandle} className='text-center bg-indigo-100 px-10 py-10'>
+          <h3 className='text-2xl font-bold uppercase text-indigo-700'>KAYIT OL</h3>
           <div className="my-4">
             <input
               type="text"
@@ -43,7 +42,7 @@ const Login = () => {
             />
           </div>
           <div className="my-4">
-            <button type='submit' className='bg-indigo-700 hover:bg-indigo-500 text-white px-5 py-2 rounded-lg'>Giriş Yap</button>
+            <button type='submit' className='bg-indigo-700 hover:bg-indigo-500 text-white px-5 py-2 rounded-lg'>Kayıt Ol</button>
           </div>
         </form>
 
@@ -52,4 +51,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Register

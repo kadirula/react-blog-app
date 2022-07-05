@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import BlogFilter from '../components/BlogFilter'
+import BlogFilter from '../../components/BlogFilter'
 
 
 const BlogList = () => {

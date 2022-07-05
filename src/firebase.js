@@ -103,7 +103,6 @@ export const addBlog = async (data) => {
 
 // Tüm Blogları Çeken Fonksiyon
 onSnapshot(collection(db, 'blogs'), (doc) => {
-
   store.dispatch(
     setBlogs(
       doc.docs.reduce((blogs, blog) => [...blogs, blog.data()], [])

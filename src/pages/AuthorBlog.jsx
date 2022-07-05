@@ -1,12 +1,14 @@
-
+import { useSelector } from 'react-redux'
+import Blog from '../components/Blog'
 
 const AuthorBlog = () => {
 
-
-
+  const { authorBlogs } = useSelector(state => state.blogs)
 
   return (
-    <div>AuthorBlog</div>
+    <>
+      <Blog blogs={authorBlogs} pageTitle='YAYINLADIĞIM YAZILAR' />
+    </>
   )
 }
 

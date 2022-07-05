@@ -29,7 +29,7 @@ const BlogFilter = () => {
                                 <Link to='/' className='font-bold text-indigo-700 hover:text-white block transition-colors' >Anasayfa</Link>
                             </li>
                             <li className='py-1 px-3 hover:bg-indigo-700 transition-colors'>
-                                <Link to='/my-blogs' className='font-bold text-indigo-700 hover:text-white block transition-colors' >Yayınladığım Yazılar</Link>
+                                <Link to='/author-blog' className='font-bold text-indigo-700 hover:text-white block transition-colors' >Yayınladığım Yazılar</Link>
                             </li>
                             {
                                 user &&

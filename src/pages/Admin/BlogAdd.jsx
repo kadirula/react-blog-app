@@ -1,6 +1,6 @@
-import BlogFilter from '../components/BlogFilter'
+import PageGridLeft from '../../components/BlogFilter'
 import { useState } from 'react'
-import { addBlog } from '../firebase'
+import { addBlog } from '../../firebase'
 import { useNavigate } from 'react-router-dom';
 
 const BlogAdd = () => {
@@ -13,6 +13,7 @@ const BlogAdd = () => {
     const [description, setDescription] = useState('')
     const [image, setImage] = useState('')
     const [category, setCategory] = useState('')
+
 
 
     const addBlogHandle = async (e) => {
@@ -42,7 +43,7 @@ const BlogAdd = () => {
             <div className='grid grid-cols-4'>
                 {/* Blog Left */}
                 <div className='col-span-1'>
-                    <BlogFilter />
+                    <PageGridLeft />
                 </div>
                 {/* Blog Content */}
                 <div className='col-span-3'>
